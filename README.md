@@ -32,8 +32,8 @@ The design emphasizes clarity, testability, and conformance with open standards 
 
 ## Project layout
 
-- `src/` — source code  
-  - `protocol/` — protocol handling layers  
+- `packages/` — source code  
+  - `protocol_lib/` — protocol handling layers  
     - `gsm/` — GSM message encoding/decoding and PDU utilities  
     - `sms/` — message models, parsing, and serialisation  
     - `utils/` — shared helpers for encoding, timestamps, and data conversion  
