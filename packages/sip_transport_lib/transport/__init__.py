@@ -1,7 +1,15 @@
-"""Transport implementations for the SIP server library."""
+"""Transport implementations for the SIP transport library."""
 
-from .base import Connection, Transport
-from .tcp import TCPTransport
-from .websocket import WebSocketTransport
+from .base import ClientTransport, Connection, Transport
+from .tcp import TCPClientTransport, TCPServerTransport
+from .websocket import WebSocketClientTransport, WebSocketServerTransport
 
-__all__ = ["Connection", "Transport", "TCPTransport", "WebSocketTransport"]
+__all__ = [
+    "ClientTransport",
+    "Connection",
+    "Transport",
+    "TCPClientTransport",
+    "TCPServerTransport",
+    "WebSocketClientTransport",
+    "WebSocketServerTransport",
+]

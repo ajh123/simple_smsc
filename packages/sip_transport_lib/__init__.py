@@ -1,4 +1,4 @@
-"""Toolkit for building simple SIP servers over TCP or WebSocket."""
+"""Toolkit for building simple SIP servers and clients over TCP or WebSocket."""
 
 from .messaging import (
     SIPMessage,
@@ -8,7 +8,16 @@ from .messaging import (
     parse_sip_message,
 )
 from .server import SIPServer
-from .transport import Connection, Transport, TCPTransport, WebSocketTransport
+from .client import SIPClient
+from .transport import (
+    ClientTransport,
+    Connection,
+    TCPClientTransport,
+    TCPServerTransport,
+    Transport,
+    WebSocketClientTransport,
+    WebSocketServerTransport,
+)
 
 __all__ = [
     "SIPMessage",
@@ -17,8 +26,12 @@ __all__ = [
     "SIPParseError",
     "parse_sip_message",
     "SIPServer",
+    "SIPClient",
+    "ClientTransport",
+    "TCPClientTransport",
+    "TCPServerTransport",
+    "WebSocketClientTransport",
+    "WebSocketServerTransport",
     "Connection",
     "Transport",
-    "TCPTransport",
-    "WebSocketTransport",
 ]

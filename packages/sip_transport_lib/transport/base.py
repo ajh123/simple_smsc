@@ -72,3 +72,27 @@ class Transport(abc.ABC):
 
     async def deliver(self, connection: Connection, message: SIPMessage) -> None:
         await self.callback(connection, message)
+
+
+class ClientTransport(Transport):
+    """Base class shared by client-side transport implementations."""
+
+    def __init__(self) -> None:
+        super().__init__()
+        self._connection: Connection | None = None
+
+    @property
+    def is_connected(self) -> bool:
+        return self._connection is not None
+
+    @property
+    def connection(self) -> Connection:
+        if self._connection is None:
+            raise RuntimeError("Client transport not connected")
+        return self._connection
+
+    async def send(self, message: PayloadInput) -> None:
+        await self.connection.send(message)
+
+    def _set_connection(self, connection: Connection | None) -> None:
+        self._connection = connection
