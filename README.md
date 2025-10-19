@@ -9,7 +9,7 @@ Currently focused on the **protocol stack** and **message handling** layers that
 It will support both **SIP over TCP** and **SIP over WebSockets**, reflecting the transport mechanisms used in modern and emerging SMS infrastructure.
 
 At this stage, development is concentrated on the lower layers — GSM and SMS protocol implementations. These define how SMS messages are encoded, parsed, and serialized according to GSM and 3GPP specifications.  
-Future work will build upon this foundation to add SIP signaling, message routing, and delivery logic.
+Future work will build upon this foundation to add message routing, and delivery logic.
 
 The design emphasizes clarity, testability, and conformance with open standards such as **GSM 03.40** and **`application/vnd.3gpp.sms`**.
 
@@ -24,11 +24,14 @@ The design emphasizes clarity, testability, and conformance with open standards 
 
 | Area | Status | Description |
 |------|---------|-------------|
-| Protocol stack | ✅ Implemented | GSM/SMS message parsing, serialisation, and MIME support |
-| Test coverage | ⚙️ In progress | Unit tests under development |
-| SIP transport | 🧭 Planned | Support for SIP over TCP and SIP over WebSockets |
-| SMSC core logic | 🧭 Planned | Message routing, store-and-forward, and delivery reports |
-| Documentation | ⚙️ In progress | Internal architecture and protocol references |
+| Protocol stack | ✅ | GSM/SMS message parsing, serialisation, and MIME support |
+| Test coverage | ⚙️ | Unit tests under development |
+| SIP transport | ✅ | Support for SIP over TCP and SIP over WebSockets |
+| SMSC core logic | 🧭 | Message routing, store-and-forward, and delivery reports |
+| Demo Client | 🧭 | Command-line tool for sending/receiving SMS messages |
+| Documentation | ⚙️ | Internal architecture and protocol references |
+
+Key: ✅ Done | ⚙️ In progress | 🧭 Planned
 
 ## Project layout
 
@@ -37,6 +40,8 @@ The design emphasizes clarity, testability, and conformance with open standards 
     - `gsm/` — GSM message encoding/decoding and PDU utilities  
     - `sms/` — message models, parsing, and serialisation  
     - `utils/` — shared helpers for encoding, timestamps, and data conversion  
+  - `sip_server_lib/` — SIP transport layers  
+    - `transport/` — transport abstractions for TCP and WebSocket connections
 
 This structure isolates the low-level protocol logic from higher-level SIP and routing layers, allowing each component to evolve independently.
 
