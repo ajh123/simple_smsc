@@ -40,7 +40,7 @@ Key: ✅ Done | ⚙️ In progress | 🧭 Planned
     - `gsm/` — GSM message encoding/decoding and PDU utilities  
     - `sms/` — message models, parsing, and serialisation  
     - `utils/` — shared helpers for encoding, timestamps, and data conversion  
-  - `sip_server_lib/` — SIP transport layers  
+  - `sip_transport_lib/` — SIP transport layers  
     - `transport/` — transport abstractions for TCP and WebSocket connections
 
 This structure isolates the low-level protocol logic from higher-level SIP and routing layers, allowing each component to evolve independently.
